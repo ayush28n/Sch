@@ -1,0 +1,925 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+    
+ <struts>
+ 
+
+ 	<package name="ducat" extends="struts-default">
+ 
+ 	<interceptors>
+		<interceptor class="p1.LoginInterceptor" name="LoginInterceptor">  </interceptor>
+		<interceptor class="p1.CashierLoginInterceptor" name="CashierLoginInterceptor">  </interceptor>
+		<interceptor class="p1.SuperLoginInterceptor" name="SuperLoginInterceptor">  </interceptor>
+	</interceptors>
+	 	
+ 	<action name="login" class="p1.LoginAction">
+ 	<result name="success">/welcome.jsp</result>
+ 	<result name="wrongpass">/wrongpass.jsp</result>
+ 	<result name="wronguser">/wronguser.jsp</result>
+ 	</action>
+ 	
+ 	<action name="admform" class="p1.AdmForm">
+    <result name="success">/AdmitStu.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="admstu" class="p1.AdmitStu"> 
+ 	<result name="success">/AdmissionAlotted.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="createcls" class="p1.createnewclass">
+ 	<result name="success">/newclass.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="classentry" class="p1.classentry">
+ 	<result name="success">/classadded.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="createplace" class="p1.createplace">
+ 	<result name="success">/newplace.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="placeentry" class="p1.placeentry">
+ 	<result name="success">/placeadded.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="deleteclass" class="p1.deleteclass">
+ 	<result name="success">/deleteclass.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="classdeleted" class="p1.classdeleted">
+ 	<result name="success">/classdeleted.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="deleteplace" class="p1.deleteplace">
+ 	<result name="success">/deleteplace.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="placedeleted" class="p1.placedeleted">
+ 	<result name="success">/placedeleted.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	<action name="SearchStudent" class="p1.SearchStudent">
+ 	<result name="success">/SearchStudent.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+	
+ 	<action name="SearchStudentLogic" class="p1.SearchStudentLogic">
+ 	<result name="success">/SearchStudentLogic.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="ClassWiseList" class="p1.ClassWiseList">
+ 	<result name="success">/ClassWiseList.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+	
+ 	<action name="GetClassList" class="p1.GetClassList">
+ 	<result name="success">/GetClassList.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 
+ 	<action name="GetAdmList" class="p1.GetAdmList">
+ 	<result name="success">/GetAdmList.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="EditContact" class="p1.EditContact">
+ 	<result name="success">/EditContact.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="EditContactConfirm" class="p1.EditContactConfirm">
+ 	<result name="success">/EditContactConfirm.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="EditContactFinal" class="p1.EditContactFinal">
+ 	<result name="success">/EditContactFinal.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="SearchByContact" class="p1.SearchByContact">
+ 	<result name="success">/SearchByContact.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+	
+ 	<action name="SearchByContactLogic" class="p1.SearchByContactLogic">
+ 	<result name="success">/SearchByContactLogic.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="EditStudentDetails" class="p1.EditStudentDetails">
+ 	<result name="success">/EditStudentDetails.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="EditStudentConfirm" class="p1.EditStudentConfirm">
+ 	<result name="success">/EditStudentConfirm.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="EditStudentFinal" class="p1.EditStudentFinal">
+ 	<result name="success">/EditStudentFinal.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+	<action name="logout" class="p1.logout">
+ 	<result name="success">/logout.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	
+ 	
+ 	<action name="FeeDueList" class="p1.FeeDueList">
+ 	<result name="success">/FeeDueList.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="FeeDueListTriggerWithoutCashier" class="p1.FeeDueListTrigger">
+ 	<result name="success">/FeeDueListTriggerWithoutCashier.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	
+ 	<action name="FeeDueListPlaceWise" class="p1.FeeDueListPlaceWise">
+ 	<result name="success">/FeeDueListPlaceWise.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="FeeDueListTriggerPlaceWiseWithoutCashier" class="p1.FeeDueListTriggerPlaceWise">
+ 	<result name="success">/FeeDueListTriggerPlaceWiseWithoutCashier.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="FeeDueListSchoolWise" class="p1.FeeDueListSchoolWise">
+ 	<result name="success">/FeeDueListSchoolWise.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="FeeDueListTriggerSchoolWiseWithoutCashier" class="p1.FeeDueListTriggerPlaceWise">
+ 	<result name="success">/FeeDueListTriggerSchoolWiseWithoutCashier.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	<action name="CashierLogin" class="p1.CashierLogin">
+ 	<result name="success">/welcome.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierValidation" class="p1.CashierValidation">
+ 	<result name="success">/welcomeCash.jsp</result>
+ 	<result name="WrongCashPass">/WrongCashPass.jsp</result>
+ 	<result name="WrongCashUser">/WrongCashUser.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="UserChangePassword" class="p1.UserChangePassword">
+ 	<result name="success">/UserChangePassword.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="UserChangePassFinal" class="p1.UserChangePassFinal">
+ 	<result name="PassChanged">/UserChangePassFinal.jsp</result>
+ 	<result name="WrongPassword">/UserChangePassWrong.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CurrentSchoolStrength" class="p1.CurrentSchoolStrength">
+ 	<result name="success">/CurrentSchoolStrength.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+
+ 	
+ 	 <!-- Cashier Method -->
+ 	
+ 	
+ 	
+ 	<action name="CashierChangePassword" class="p1.CashierChangePassword">
+ 	<result name="success">/CashierChangePassword.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierChangePassFinal" class="p1.CashierChangePassFinal">
+ 	<result name="PassChanged">/CashierChangePassFinal.jsp</result>
+ 	<result name="WrongPassword">/CashierChangePassWrong.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 
+ 	<action name="CashierLogout" class="p1.CashierLogout">
+ 	<result name="success">/welcome.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierFeeCollection" class="p1.CashierFeeCollection">  
+ 	<result name="success">/CashierFeeCollection.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierFeeData" class="p1.CashierFeeData">
+ 	<result name="success">/CashierFeeData.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierFeeConfirm" class="p1.CashierFeeConfirm">
+ 	<result name="success">/CashierFeeConfirm.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierFeeFinal" class="p1.CashierFeeFinal">
+ 	<result name="success">/CashierFeeFinal.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierFeeReceipt" class="p1.CashierFeeReceipt">
+ 	<result name="success">/CashierFeeReceipt.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierGetAdmList" class="p1.GetAdmList">
+ 	<result name="success">/CashierGetAdmList.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierSearchStudent" class="p1.SearchStudent">
+ 	<result name="success">/CashierSearchStudent.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+	
+ 	<action name="CashierSearchStudentLogic" class="p1.SearchStudentLogic">
+ 	<result name="success">/CashierSearchStudentLogic.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierChangeMonth" class="p1.CashierChangeMonth">
+ 	<result name="success">/CashierChangeMonth.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierChangeMonthLogic" class="p1.CashierChangeMonthLogic">
+ 	<result name="success">/CashierChangeMonthLogic.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	
+ 	<action name="CashierSetTransportFee" class="p1.SetTransportFee">
+ 	<result name="success">/CashierSetTransportFee.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+	
+ 	<action name="CashierTransportFeeEntry" class="p1.TransportFeeEntry">
+ 	<result name="success">/CashierTransportFeeAdded.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="Cashiersettutionfee" class="p1.settutionfee">
+ 	<result name="success">/Cashiersettutionfee.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="Cashiertutionfeeentry" class="p1.tutionfeeentry">
+ 	<result name="success">/CashierTutionFeeAdded.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierSetOtherFee" class="p1.SetOtherFee">
+ 	<result name="success">/CashierSetOtherFee.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+	
+ 	<action name="CashierOtherFeeEntry" class="p1.OtherFeeEntry">
+ 	<result name="success">/CashierOtherFeeAdded.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierAddExpenses" class="p1.CashierAddExpenses">
+ 	<result name="success">/CashierAddExpenses.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierExpenseAdded" class="p1.CashierExpenseAdded">
+ 	<result name="success">/CashierExpenseAdded.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierAddIncome" class="p1.CashierAddIncome">
+ 	<result name="success">/CashierAddIncome.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierIncomeAdded" class="p1.CashierIncomeAdded">
+ 	<result name="success">/CashierIncomeAdded.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierCashDashboard" class="p1.CashierCashDashboard">
+ 	<result name="success">/CashierCashDashboard.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	<action name="FeeDueListTrigger" class="p1.FeeDueListTrigger">
+ 	<result name="success">/FeeDueListTrigger.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="FeeDueListTriggerSchoolWise" class="p1.FeeDueListTriggerSchoolWise">
+ 	<result name="success">/FeeDueListTriggerSchoolWise.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	<action name="FeeDueListTriggerPlaceWise" class="p1.FeeDueListTriggerPlaceWise">
+ 	<result name="success">/FeeDueListTriggerPlaceWise.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	<action name="CashierExpIncReport" class="p1.CashierExpIncReport">
+ 	<result name="success">/CashierExpIncReport.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierExpIncReportPrint" class="p1.CashierExpIncReportPrint">
+ 	<result name="success">/CashierExpIncReportPrint.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierFeeCollectionReport" class="p1.CashierFeeCollectionReport">
+ 	<result name="success">/CashierFeeCollectionReport.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierFeeCollectionPrint" class="p1.CashierFeeCollectionPrint">
+ 	<result name="success">/CashierFeeCollectionPrint.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierSearchReceipt" class="p1.CashierSearchReceipt">
+ 	<result name="success">/CashierSearchReceipt.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierSearchReceiptResult" class="p1.CashierSearchReceiptResult">
+ 	<result name="success">/CashierSearchReceiptResult.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierPrintDuplicateReceipt" class="p1.CashierPrintDuplicateReceipt">
+ 	<result name="success">/CashierPrintDuplicateReceipt.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierPrintDuplicateFinal" class="p1.CashierFeeReceipt">
+ 	<result name="success">/CashierFeeReceiptDuplicate.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	
+ 	<action name="CashierFeeCertificate" class="p1.CashierFeeCertificate">
+ 	<result name="success">/CashierFeeCertificate.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierFeeCertificatePrint" class="p1.CashierFeeCertificatePrint">
+ 	<result name="success">/CashierFeeCertificatePrint.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierCashCollection" class="p1.CashierCashCollection">
+ 	<result name="success">/CashierCashCollection.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierCashCollectionFinal" class="p1.CashierCashCollectionFinal">
+ 	<result name="success">/CashierCashCollectionFinal.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="Cashadmform" class="p1.AdmForm">
+     <result name="success">/CashAdmitStu.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="Cashadmstu" class="p1.AdmitStu"> 
+ 	<result name="success">/CashAdmissionAlotted.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierAdmissionReport" class="p1.CashierAdmissionReport">
+ 	<result name="success">/CashierAdmissionReport.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierAdmissionReportPrint" class="p1.CashierAdmissionReportPrint">
+ 	<result name="success">/CashierAdmissionReportPrint.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierDiscountedStudent" class="p1.CashierDiscountedStudent"> 
+ 	<result name="success">/CashierDiscountedStudent.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="CashierLoginInterceptor">   </interceptor-ref>
+    </action>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<!-- Super Method -->
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<action name="DeleteStudent" class="p1.DeleteStudent"> <!-- Super Method -->
+ 	<result name="success">/DeleteStudent.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="DeleteStudentConfirmation" class="p1.DeleteStudentConfirmation"> <!-- Super Method -->
+ 	<result name="success">/DeleteStudentConfirmation.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+ 	<interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="DeleteStudentFinal" class="p1.DeleteStudentFinal">  <!-- Super Method -->
+ 	<result name="success">/DeleteStudentFinal.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierChangeYear" class="p1.CashierChangeYear">   <!-- Super Method -->
+ 	<result name="success">/CashierChangeYear.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="CashierChangeYearLogic" class="p1.CashierChangeYearLogic">  <!-- Super Method -->
+ 	<result name="success">/CashierChangeYearLogic.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+    </action>
+ 	
+ 	
+ 	
+ 	<action name="SuperNewUser" class="p1.SuperNewUser">  <!-- Super Method -->
+ 	<result name="success">/SuperNewUser.jsp</result>
+ 	<result name="error">/welcomeCashError.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="SuperNewUserAdded" class="p1.SuperNewUserAdded">  <!-- Super Method -->
+ 	<result name="success">/SuperNewUserAdded.jsp</result>
+ 	<result name="error">/welcomeCashError.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 
+ 	<action name="SuperNewCashier" class="p1.SuperNewCashier">  <!-- Super Method -->
+ 	<result name="success">/SuperNewCashier.jsp</result>
+ 	<result name="error">/welcomeCashError.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="SuperNewCashierAdded" class="p1.SuperNewCashierAdded">  <!-- Super Method -->
+ 	<result name="success">/SuperNewCashierAdded.jsp</result>
+ 	<result name="error">/welcomeCashError.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="SuperRemoveUser" class="p1.SuperRemoveUser">  <!-- Super Method -->
+ 	<result name="success">/SuperRemoveUser.jsp</result>
+ 	<result name="error">/welcomeCashError.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="SuperRemoveUserDeleted" class="p1.SuperRemoveUserDeleted">  <!-- Super Method -->
+ 	<result name="success">/SuperRemoveUserDeleted.jsp</result>
+ 	<result name="error">/welcomeCashError.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	<action name="SuperRemoveCashier" class="p1.SuperRemoveCashier">  <!-- Super Method -->
+ 	<result name="success">/SuperRemoveCashier.jsp</result>
+ 	<result name="error">/welcomeCashError.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	<action name="SuperRemoveCashierDeleted" class="p1.SuperRemoveCashierDeleted">  <!-- Super Method -->
+ 	<result name="success">/SuperRemoveCashierDeleted.jsp</result>
+ 	<result name="error">/welcomeCashError.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+    </action>
+    
+    <action name="SuperCashierWiseCollection" class="p1.SuperCashierWiseCollection">  <!-- Super Method -->
+ 	<result name="success">/SuperCashierWiseCollection.jsp</result>
+ 	<result name="error">/welcomeCashError.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+    </action>
+    
+    <action name="SuperCashierWiseCollectionFinal" class="p1.SuperCashierWiseCollectionFinal">  <!-- Super Method -->
+ 	<result name="success">/SuperCashierWiseCollectionFinal.jsp</result>
+ 	<result name="error">/welcomeCashError.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+    </action>
+    
+    <action name="SuperStudentDiscount" class="p1.SuperStudentDiscount">
+ 	<result name="success">/SuperStudentDiscount.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="SuperStuDiscConfirm" class="p1.SuperStuDiscConfirm">
+ 	<result name="success">/SuperStuDiscConfirm.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="SuperStuDiscFinal" class="p1.SuperStuDiscFinal">
+ 	<result name="success">/SuperStuDiscFinal.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="SuperBulkPromotion" class="p1.SuperBulkPromotion">
+ 	<result name="success">/SuperBulkPromotion.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	<action name="SuperBulkPromotionLogic" class="p1.SuperBulkPromotionLogic">
+ 	<result name="success">/SuperBulkPromotionLogic.jsp</result>
+ 	<result name="error">/error.jsp</result>
+ 	<result name="ValidationError">/error.jsp</result>
+ 	<interceptor-ref name="defaultStack">   </interceptor-ref> 
+    <interceptor-ref name="LoginInterceptor">   </interceptor-ref>
+    <interceptor-ref name="SuperLoginInterceptor">   </interceptor-ref>
+ 	</action>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	</package>
+ </struts>   
